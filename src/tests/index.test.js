@@ -1,147 +1,391 @@
 // если первое число четное найти произведение и  сумму, если нечетное.
 
-describe('sumOrMultiply', function() {
-    it('should be defined', function() {
-        assert.isDefined(sumOrMultiply);
-    });
+describe('Conditional operators', () => {
+    
+    describe('sumOrMultiply', function() {
+        it('should be defined', function() {
+            assert.isDefined(sumOrMultiply);
+        });
 
-    it('should return sum(5, 5)', function() {
-        const firstNum = 5;
-        const secondNum = 5;
-        const expected = 10;
+        it('should return sum(5, 5)', function() {
+            const firstNum = 5;
+            const secondNum = 5;
+            const expected = 10;
 
-        const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = sumOrMultiply(firstNum, secondNum);
 
-        assert.deepEqual(actual, expected);
-    });
+            assert.deepEqual(actual, expected);
+        });
 
-    it('should return product (-4, 5)', function() {
-        const firstNum = -4;
-        const secondNum = 5;
-        const expected = -20;
+        it('should return product (-4, 5)', function() {
+            const firstNum = -4;
+            const secondNum = 5;
+            const expected = -20;
 
-        const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = sumOrMultiply(firstNum, secondNum);
 
-        assert.deepEqual(actual, expected);
-    });
+            assert.deepEqual(actual, expected);
+        });
 
-    it('should return product (0, 5)', function() {
-        const firstNum = 0;
-        const secondNum = 5;
-        const expected = 0;
+        it('should return product (0, 5)', function() {
+            const firstNum = 0;
+            const secondNum = 5;
+            const expected = 0;
 
-        const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = sumOrMultiply(firstNum, secondNum);
 
-        assert.deepEqual(actual, expected);
-    });
+            assert.deepEqual(actual, expected);
+        });
 
-    it('should return product (undefined, undefined)', function() {
-        const firstNum = undefined;
-        const secondNum = undefined;
-        const expected = 'Please input right data!';
+        it('should return product (undefined, undefined)', function() {
+            const firstNum = undefined;
+            const secondNum = undefined;
+            const expected = 'Please input right data!';
 
-        const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = sumOrMultiply(firstNum, secondNum);
 
-        assert.deepEqual(actual, expected);
-    });
-}) 
+            assert.deepEqual(actual, expected);
+        });
+    }) 
 
-describe('getPoint', () => {
-    it('should be defined', () => {
-        assert.isDefined(getPoint)
-    });
+    // Определить какой четверти принадлежит точка с координатами (х,у)
 
-    it('should return \'Начало координат\' ', () => {
-        const num1 = 0;
-        const num2 = 0;
-        const expected = 'Начало координат';
+    describe('getPoint', () => {
+        it('should be defined', () => {
+            assert.isDefined(getPoint);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'Начало координат\' ', () => {
+            const num1 = 0;
+            const num2 = 0;
+            const expected = 'Начало координат';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
 
-    it('should return \'1-ая четверть\' ', () => {
-        const num1 = 1;
-        const num2 = 1;
-        const expected = '1-ая четверть';
+            assert.deepEqual(actual, expected);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'1-ая четверть\' ', () => {
+            const num1 = 1;
+            const num2 = 1;
+            const expected = '1-ая четверть';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
 
-    it('should return \'2-ая четверть\' ', () => {
-        const num1 = -1;
-        const num2 = 1;
-        const expected = '2-ая четверть';
+            assert.deepEqual(actual, expected);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'2-ая четверть\' ', () => {
+            const num1 = -1;
+            const num2 = 1;
+            const expected = '2-ая четверть';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
 
-    it('should return \'3-я четверть\' ', () => {
-        const num1 = -1;
-        const num2 = -1;
-        const expected = '3-я четверть';
+            assert.deepEqual(actual, expected);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'3-я четверть\' ', () => {
+            const num1 = -1;
+            const num2 = -1;
+            const expected = '3-я четверть';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
 
-    it('should return \'4-я четверть\' ', () => {
-        const num1 = 1;
-        const num2 = -1;
-        const expected = '4-я четверть';
+            assert.deepEqual(actual, expected);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'4-я четверть\' ', () => {
+            const num1 = 1;
+            const num2 = -1;
+            const expected = '4-я четверть';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
 
-    it('should return \'Error! Please input right data!\' ', () => {
-        const num1 = undefined;
-        const num2 = 0;
-        const expected = 'Error! Please input right data!';
+            assert.deepEqual(actual, expected);
+        });
 
-        const actual = getPoint(num1, num2);
+        it('should return \'Error! Please input right data!\' ', () => {
+            const num1 = undefined;
+            const num2 = 0;
+            const expected = 'Error! Please input right data!';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getPoint(num1, num2);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'точка находится между 1-й и 2-й четвертями\' ', () => {
+            const num1 = 0;
+            const num2 = 1;
+            const expected = 'точка находится между 1-й и 2-й четвертями';
+
+            const actual = getPoint(num1, num2);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'точка находится между 3-й и 4-й четвертями\' ', () => {
+            const num1 = 0;
+            const num2 = -1;
+            const expected = 'точка находится между 3-й и 4-й четвертями';
+
+            const actual = getPoint(num1, num2);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'точка находится между 1-й и 4-й четвертями\' ', () => {
+            const num1 = 1;
+            const num2 = 0;
+            const expected = 'точка находится между 1-й и 4-й четвертями';
+
+            const actual = getPoint(num1, num2);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'точка находится между 2-й и 3-й четвертями\' ', () => {
+            const num1 = -1;
+            const num2 = 0;
+            const expected = 'точка находится между 2-й и 3-й четвертями';
+
+            const actual = getPoint(num1, num2);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    //  Найти суммы только положительных из трех чисел
+
+    describe('getPosNumSum', () => {
+        it('should be defined', () => {
+            assert.isDefined(getPosNumSum);
+        });
+
+        it('should return error!', () => {
+            const num1 = null;
+            const num2 = undefined;
+            const num3 = null;
+            const expected = 'Error!';
+
+            const actual = getPosNumSum(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result', () => {
+            const num1 = -1;
+            const num2 = 1;
+            const num3 = 1;
+            const expected = num2 + num3;
+
+            const actual = getPosNumSum(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result', () => {
+            const num1 = 1;
+            const num2 = -1;
+            const num3 = 1;
+            const expected = num1 + num3;
+
+            const actual = getPosNumSum(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result', () => {
+            const num1 = 1;
+            const num2 = 1;
+            const num3 = -1;
+            const expected = num1 + num2;
+
+            const actual = getPosNumSum(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    // Посчитать выражение макс(а*б*с, а+б+с)+3
+
+    describe('getMaxValue', () => {
+        it('function defined', () => {
+            assert.isDefined(getMaxValue);
+        });
+
+        it('should return Error!', () => {
+            const num1 = undefined;
+            const num2 = "";
+            const num3 = undefined;
+            const expected = 'Error!';
+
+            const actual = getMaxValue(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when sum > production ', () => {
+            const num1 = 1;
+            const num2 = 1;
+            const num3 = 1;
+            const expected = (num1 + num2 + num3) + 3;
+
+            const actual = getMaxValue(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when sum < production', () => {
+            const num1 = 2;
+            const num2 = 1;
+            const num3 = 4;
+            const expected = 11;
+
+            const actual = getMaxValue(num1, num2, num3);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    // Написать программу определения оценки студента по его рейтингу
+
+    describe('getStudentRat', () => {
+        it('function defined', () => {
+            assert.isDefined(getStudentRat);
+        });
+
+        it('return result \'Error!\' ', () => {
+            const point = 'jj';
+            const expected = 'Error!';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'F\' when point >= 0 and point <= 19 ', () => {
+            const point = 9;
+            const expected = 'F';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'E\' when point >= 20 and point <= 39 ', () => {
+            const point = 29;
+            const expected = 'E';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'D\' when point >= 40 and point <= 59 ', () => {
+            const point = 45;
+            const expected = 'D';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'C\' when point >= 60 and point <= 74 ', () => {
+            const point = 65;
+            const expected = 'C';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'B\' when point >= 75 and point <= 89 ', () => {
+            const point = 88;
+            const expected = 'B';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'A\' when point >= 90 and point <= 100 ', () => {
+            const point = 92;
+            const expected = 'A';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('return result \'Please input a right data!\'', () => {
+            const point = -5;
+            const expected = 'Please input a right data!';
+
+            const actual = getStudentRat(point);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
 })
 
-describe('getPosNumSum', () => {
-    it('should be defined', () => {
-        assert.isDefined(getPosNumSum)
-    });
+describe('Cycles', () => {
+ 
+    // Найти сумму четных чисел и их количество в диапазоне от 1 до 99
 
-    it('should return error!', () => {
-        const num1 = 0;
-        const num2 = undefined;
-        const num3 = null;
+    describe('sumAndQuantity', () => {
+        it('function \'sumAndQuantity\' defined', () => {
+            assert.isDefined(sumAndQuantity);
+        });
 
-        const expected = 'Error!';
+        it('should return result \'sum 2401 and quantity  49\'', () => {
+            const expected = `sum 2401 and quantity 49`;
 
-        const actual = getPosNumSum(num1, num2, num3);
+            const actual = sumAndQuantity();
 
-        assert.deepEqual(actual, expected);
-    });
+            assert.deepEqual(actual, expected)
+        });
+    })
 
-    it('should return result', () => {
-        const num1 = 1;
-        const num2 = 1;
-        const num3 = 3;
+    // Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
 
-        const expected = num1 + num2 + num3;
+    describe('getSimpleNumber', () => {
+        it('function \'getSimpleNumber\' defined',() => {
+            assert.isDefined(getSimpleNumber);
+        });
 
-        const actual = getPosNumSum(num1, num2, num3);
+        it('should return result \'Error!\'', () => {
+            const number = null;
+            const expected = 'Error!';
 
-        assert.deepEqual(actual, expected);
-    });
+            const actual = getSimpleNumber(number);
 
-})   
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result \'simple\'', () => {
+            const number = 5;
+            const expected = 'Simple';
+
+            const actual = getSimpleNumber(number);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result \'Complicated\'', () => {
+            const number = 6;
+            const expected = 'Complicated';
+
+            const actual = getSimpleNumber(number);
+
+            assert.deepEqual(actual, expected);
+        });
+
+    })
+
+})
+
 
 describe('defineWeekDay', () => {
     it('should be defined', () => {
