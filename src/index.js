@@ -1,6 +1,6 @@
 // 1.1 Если а – четное посчитать а*б, иначе а+б  
 
-function sumOrMultiply(a, b) {
+function getSumOrMultiply(a, b) {
     if ( (a !== 0) && !a || (b !== 0) && ! b ) {
         return 'Please input right data!';
     }
@@ -103,24 +103,28 @@ function getStudentRat(point) {
 
 // Найти сумму четных чисел и их количество в диапазоне от 1 до 99
 
-function sumAndQuantity() {
+function getSumAndQuantity() {
     let sum = 0;
     let quantity = 0;
     let i = 1;
 
-    for (i = 1; i < 99; i += 2) {
+    for (i = 1; i < 99; i ++) {
+        if (i % 2 === 0) {
         sum = sum + i;
         quantity ++;
+        }
     }
     return `sum ${sum} and quantity ${quantity}`;
 }
+console.log(getSumAndQuantity());
+
 
 // Проверить простое ли число? (число называется простым, если оно делится только само на себя и на 1)
 
 function getSimpleNumber(number) {
     let result = "Simple";
 
-    if (typeof number !== "number" || number === 0) {
+    if (typeof number !== "number" || number === 0 || number < 0) {
         result = "Error!";
     }
 
@@ -135,8 +139,117 @@ function getSimpleNumber(number) {
     return result;
 }
 
-console.log(getSimpleNumber(0));
+// +Вычислить факториал числа n. n! = 1*2*…*n-1*n;!
 
+function findFact(number) {
+    let result = 1;
+    let i = 1;
+
+    if( (typeof number !== "number") || number < 0) {
+        result = "Error!";
+    }
+
+    for (i = 1; i <= number; i++) { 
+        result *= i;
+    }
+    
+    return result;
+}
+
+// Посчитать сумму цифр заданного числа
+
+function getSumDigitsNumber(number) {
+    let result = 0;
+    let i = 0;
+
+    if( (typeof number !== "number" || number === 0) ) {
+        result = "Please input a right data!";
+    }
+    while (number > 0 || number < 0) {
+        i = number % 10;
+        number = ( number - i ) / 10;
+        result += i;
+    }
+
+    return result;
+}  
+
+// Найти минимальный элемент массива
+
+function getMinArrElement(arr) {
+    if (!arr || (arr.length === 0) || (typeof arr !== "object") ) {
+        return  "Wrong input!"
+    }
+
+    let min = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if ( min > arr[i]) {
+            min = arr[i];
+        }
+    }
+    
+    return min;
+}
+ 
+// Найти максимальный элемент массива
+
+function getMaxArrElement(arr) {
+    if (!arr || (arr.length === 0) || (typeof arr !== "object") ) {
+        return  "Wrong input!"
+    }
+
+    let max = arr[0];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];    
+        }
+    }
+
+    return max;
+}
+
+// Найти индекс минимального элемента массива
+
+function getMinElementIndex(arr) {
+    if (!arr || (arr.length === 0) || (typeof arr !== "object") ) {
+        return  "Wrong input!"
+    }
+
+    let min = arr[0];
+    let ind = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if ( min > arr[i]) {
+            min = arr[i];
+            ind = i;
+        }
+    }
+
+    return ind;
+}
+
+
+// Найти индекс максимального элемента массива
+
+function getMaxElementIndex(arr) {
+    if (!arr || (arr.length === 0) || (typeof arr !== "object") ) {
+        return  "Wrong input!"
+    }
+    
+    let max = arr[0];
+    let index = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+            index = i; 
+        }
+    }
+
+    return index;
+}
 
 function defineweekDay(number) {
     let result = '';

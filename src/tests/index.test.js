@@ -2,9 +2,9 @@
 
 describe('Conditional operators', () => {
     
-    describe('sumOrMultiply', function() {
+    describe('getSumOrMultiply', function() {
         it('should be defined', function() {
-            assert.isDefined(sumOrMultiply);
+            assert.isDefined(getSumOrMultiply);
         });
 
         it('should return sum(5, 5)', function() {
@@ -12,7 +12,7 @@ describe('Conditional operators', () => {
             const secondNum = 5;
             const expected = 10;
 
-            const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = getSumOrMultiply(firstNum, secondNum);
 
             assert.deepEqual(actual, expected);
         });
@@ -22,7 +22,7 @@ describe('Conditional operators', () => {
             const secondNum = 5;
             const expected = -20;
 
-            const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = getSumOrMultiply(firstNum, secondNum);
 
             assert.deepEqual(actual, expected);
         });
@@ -32,7 +32,7 @@ describe('Conditional operators', () => {
             const secondNum = 5;
             const expected = 0;
 
-            const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = getSumOrMultiply(firstNum, secondNum);
 
             assert.deepEqual(actual, expected);
         });
@@ -42,7 +42,27 @@ describe('Conditional operators', () => {
             const secondNum = undefined;
             const expected = 'Please input right data!';
 
-            const actual = sumOrMultiply(firstNum, secondNum);
+            const actual = getSumOrMultiply(firstNum, secondNum);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return product (null, null)', function() {
+            const firstNum = null;
+            const secondNum = null;
+            const expected = 'Please input right data!';
+
+            const actual = getSumOrMultiply(firstNum, secondNum);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return product (\'\',\'\')', function() {
+            const firstNum = '';
+            const secondNum = '';
+            const expected = 'Please input right data!';
+
+            const actual = getSumOrMultiply(firstNum, secondNum);
 
             assert.deepEqual(actual, expected);
         });
@@ -334,15 +354,15 @@ describe('Cycles', () => {
  
     // Найти сумму четных чисел и их количество в диапазоне от 1 до 99
 
-    describe('sumAndQuantity', () => {
-        it('function \'sumAndQuantity\' defined', () => {
-            assert.isDefined(sumAndQuantity);
+    describe('getSumAndQuantity', () => {
+        it('function \'getSumAndQuantity\' defined', () => {
+            assert.isDefined(getSumAndQuantity);
         });
 
-        it('should return result \'sum 2401 and quantity  49\'', () => {
-            const expected = `sum 2401 and quantity 49`;
+        it('should return result \'sum 2450 and quantity 49\'', () => {
+            const expected = `sum 2450 and quantity 49`;
 
-            const actual = sumAndQuantity();
+            const actual = getSumAndQuantity();
 
             assert.deepEqual(actual, expected)
         });
@@ -356,7 +376,7 @@ describe('Cycles', () => {
         });
 
         it('should return result \'Error!\'', () => {
-            const number = null;
+            const number = -2;
             const expected = 'Error!';
 
             const actual = getSimpleNumber(number);
@@ -384,6 +404,471 @@ describe('Cycles', () => {
 
     })
 
+    // +Вычислить факториал числа n. n! = 1*2*…*n-1*n;!
+
+    describe('findFact', () => {
+        it('function \'findFact\' defined', () => {
+            assert.isDefined(findFact);
+        });
+
+        it('should return result \'Error!\'', () => {
+            const number = -5;
+            const expected = 'Error!';
+
+            const actual = findFact(number);
+
+            assert.deepEqual(actual, expected)
+        });
+
+        it('should return result \' Factorial of a given number\'', () => {
+            const number = 3;
+            const expected = 6;
+
+            const actual = findFact(number);
+
+            assert.deepEqual(actual, expected)
+        });
+        
+    })
+
+    // Посчитать сумму цифр заданного числа
+
+    describe('getSumDigitsNumber', () => {
+        it('function \'getSumDigitsNumber\' defined', () => {
+            assert.isDefined(getSumDigitsNumber);
+        });
+
+        it('should return result \'Please input a right data!\'', () => {
+            const number = 0;
+            const expected = 'Please input a right data!';
+
+            const actual = getSumDigitsNumber(number);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result \'sum \'', () => {
+            const number = 56;
+            const expected = 11;
+
+            const actual = getSumDigitsNumber(number);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result \'sum \'', () => {
+            const number = -56;
+            const expected = -11;
+
+            const actual = getSumDigitsNumber(number);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+})
+
+describe('Arrays', () => {
+
+    // Найти минимальный элемент массива
+
+    describe('getMinArrElement', () => {
+        it('function \'getMinArrElement\' defined', () => {
+            assert.isDefined(getMinArrElement);
+        });
+
+        it('should return \'Wrong input!\' when arr []', () => {
+            const arr = [];
+            const expected = 'Wrong input!';
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr null', () => {
+            const arr = null;
+            const expected = 'Wrong input!';
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr undefined', () => {
+            const arr = undefined;
+            const expected = 'Wrong input!';
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [1]', () => {
+            const arr = [1];
+            const expected = 1;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [1, 2, 3]', () => {
+            const arr = [1, 2, 3];
+            const expected = 1;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [1, 2]', () => {
+            const arr = [1, 2];
+            const expected = 1;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [ ]', () => {
+            const arr = [ ];
+            const expected = 'Wrong input!';
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [-1]', () => {
+            const arr = [-1];
+            const expected = -1;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [-1, -2]', () => {
+            const arr = [-1, -2];
+            const expected = -2;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [1, 2, -6]', () => {
+            const arr = [1, 2, -6];
+            const expected = -6;
+
+            const actual = getMinArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    // Найти максимальный элемент массива
+
+    describe('getMaxArrElement', () => {
+        it('function \'getMaxArrElement\' defined', () => {
+            assert.isDefined(getMinArrElement);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = []\'', () => {
+            const arr = [];
+            const expected = 'Wrong input!';
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr \'null\'', () => {
+            const arr = null;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = undefined\'', () => {
+            const arr = undefined;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = [ ]\'', () => {
+            const arr = [ ];
+            const expected = 'Wrong input!';
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = \'\' \' ', () => {
+            const arr = '';
+            const expected = 'Wrong input!';
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = [1, 1]\'', () => {
+            const arr = [1, 1];
+            const expected = 1;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [1]\'', () => {
+            const arr = [1];
+            const expected = 1;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [1, 2]\'', () => {
+            const arr = [1, 2];
+            const expected = 2;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [1, 2, 3] \'', () => {
+            const arr = [1, 2, 3];
+            const expected = 3;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [1, -2] \'', () => {
+            const arr = [1, -2];
+            const expected = 1;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [0, -2] \'', () => {
+            const arr = [0, -2];
+            const expected = 0;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+        
+        it('should return result when \'arr = [0, 2, -56]\'', () => {
+            const arr = [0, 2, -56];
+            const expected = 2;
+
+            const actual = getMaxArrElement(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    // Найти индекс минимального элемента массива
+
+    describe('getMinElementIndex', () => {
+        it('function \'getMinElementIndex\' defined', () => {
+            assert.isDefined(getMinArrElement);
+        });
+
+        it('should return \'Wrong input!\' when arr []', () => {
+            const arr = [];
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr null', () => {
+            const arr = null;
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr undefined', () => {
+            const arr = undefined;
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr [ ]', () => {
+            const arr = [ ];
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr 0', () => {
+            const arr = 0;
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr [1]', () => {
+            const arr = [1];
+            const expected = 0;
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when arr \'\'', () => {
+            const arr = '';
+            const expected = 'Wrong input!';
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [6, 2]', () => {
+            const arr = [6, 2];
+            const expected = 1;
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [6, 2, -6]', () => {
+            const arr = [6, 2, -6];
+            const expected = 2;
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when arr [0, 0]', () => {
+            const arr = [0, 0];
+            const expected = 0;
+
+            const actual = getMinElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
+
+    // Найти индекс максимального элемента массива
+
+    describe('getMaxElementIndex', () => {
+        it('function \'getMaxElementIndex\' defined', () => {
+            assert.isDefined(getMaxElementIndex);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = []\'', () => {
+            const arr = [];
+            const expected = 'Wrong input!';
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = null\'', () => {
+            const arr = null;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = undefined\'', () => {
+            const arr = undefined;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = 0\'', () => {
+            const arr = 0;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return \'Wrong input!\' when \'arr = undefined\'', () => {
+            const arr = undefined;
+            const expected = 'Wrong input!';
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [0, 1, 6]\'', () => {
+            const arr = [0, 1, 6];
+            const expected = 2;
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [0]\'', () => {
+            const arr = [0];
+            const expected = 0;
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [0, -1, -6]\'', () => {
+            const arr = [0, -1, -6];
+            const expected = 0;
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+
+        it('should return result when \'arr = [0, 1]\'', () => {
+            const arr = [0, 1];
+            const expected = 1;
+
+            const actual = getMaxElementIndex(arr);
+
+            assert.deepEqual(actual, expected);
+        });
+    })
 })
 
 
